@@ -36,33 +36,58 @@ You can also use postman or curl for the test.
 The curl commands for the test scenario are:
 
 // Create the first message
+
+```
 curl -X POST -H "Content-Type: application/json" -d '{"author":"J\u00e9r\u00e9mie Durand", "content":"Bonjour, j\u0027ai un probl\u00e8me avec mon nouveau t\u00e9l\u00e9phone", "channel":"SMS"}' http://localhost:8080/messages
+```
 
 // Create the customer file
+
+```
 curl -X POST -H "Content-Type: application/json" -d '{"customer":"J\u00e9r\u00e9mie Durand"}' http://localhost:8080/customerFiles
+```
 
 // Attach the first message to the customer file
-curl -i -X POST -H "Content-Type:text/uri-list" -d "http://localhost:8080/messages/1" http://localhost:8080/customerFiles/2/messages
 
+```
+curl -i -X POST -H "Content-Type:text/uri-list" -d "http://localhost:8080/messages/1" http://localhost:8080/customerFiles/2/messages
+```
 
 // Second implementation (legacy impl) of adding the message to the customer file
-curl -i -X POST -H "Content-Type: application/json" -d '{"messageId": 1}' http://localhost:8080/customerFiles-custom/2/messages
 
+```
+curl -i -X POST -H "Content-Type: application/json" -d '{"messageId": 1}' http://localhost:8080/customerFiles-custom/2/messages
+```
 
 // Create the second message
+
+```
 curl -X POST -H "Content-Type: application/json" -d '{"author":"Sonia Valentin", "content":"Je suis Sonia, et je vais mettre tout en oeuvre pour vous aider. Quel est le mod\u00e8le de votre t\u00e9l\u00e9phone ?", "channel":"SMS"}' http://localhost:8080/messages
+```
 
 // Attach the second message to the customer file
+
+```
 curl -i -X POST -H "Content-Type:text/uri-list" -d "http://localhost:8080/messages/3" http://localhost:8080/customerFiles/2/messages		
+```
 
 // Alternative for linking the message to the customer file (legacy implementation)
+
+```
 curl -i -X POST -H "Content-Type: application/json" -d '{"messageId": 3}' http://localhost:8080/customerFiles-custom/2/messages
+```
 
 // Set the reference on the file
+
+```
 curl -i -X PATCH -H "Content-Type: application/json" -d '{"ref":"KA-18B6"}' http://localhost:8080/customerFiles/1
+```
 
 // Display all files
+
+```
 curl http://localhost:8080/customerFiles
+```
 
 ### Unit tests / Integration tests
 
