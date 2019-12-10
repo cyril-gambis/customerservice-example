@@ -1,5 +1,39 @@
 # Solution to customer service problem
 
+## The problem
+
+Create a REST API (RESTful would be even better) with Spring boot, that provides management of the following items:
+
+- Message
+with properties
+-- date of the message
+-- name of the author
+-- content
+-- channel
+
+- Customer file
+with properties
+-- name of the customer
+-- opening date
+-- reference
+-- list of messages
+
+- Channel
+values are: MAIL, SMS, FACEBOOK, TWITTER
+
+The API would enable the following scenario:
+- Create a message from "Jérémie Durand" with the content: "Bonjour, j’ai un problème avec mon nouveau téléphone"
+- Create a customer file, with the customer name set as "Jérémie Durand", and attach the previous message to it
+- Create a message from "Sonia Valentin", with the content: "Je suis Sonia, et je vais mettre tout en œuvre pour vous aider. Quel est le modèle de votre téléphone ?", and on the same customer file
+- Modify the customer file and set the reference to "KA-18B6"
+- Get all the customer files. The result is just one customer file: the one previously created
+
+
+We expect a "zip" file, containing all (and only) the files necessary to generate a "jar" package by a person who knows only little about java (an operational). This include documentation.
+Provide also necessary documentation to the operational to start the application.
+
+
+
 ## Technologies
 
 This solution relies on:
